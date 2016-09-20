@@ -1,20 +1,7 @@
-<table>
-  <thead>
-    <tr>
-      Saying
-    </tr>
-    <tr>
-      Author
-    </tr>
-  </thead>
-  <%= for q <- @quotes do %>
-    <tr>  
-      <td>
-        <%= q.saying %>
-      </td>
-      <td>
-        <%= q.author %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<h2>New Quote</h2>
+<form class="" action="<%= quote_path(@conn, :create)%>" method="post">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Your Quote Here!">
+    <input type="button" name="name" value="Save" class="btn btn-success">
+  </div>
+</form>
