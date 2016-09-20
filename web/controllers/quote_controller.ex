@@ -1,5 +1,7 @@
 defmodule Splurty.QuoteController do
   use Splurty.Web, :controller
+  alias Splurty.Router
+  import Splurty.Router.Helpers
 
   plug :action
 
