@@ -1,11 +1,11 @@
 <h2>New Quote</h2>
-<form class="" action="<%= quote_path(@conn, :create)%>" method="post">
+<%= form_for @changeset, quote_path(@conn, :create), fn f -> %>
   <div class="form-group">
 
     <input type="text" class="form-control" name="quote[saying]" placeholder="Your Quote Here!">
     <br>
     <input type="text" class="form-control" name="quote[author]" placeholder="Author Name">
     <br>
-    <input type="button" name="name" value="Save" class="btn btn-success">
+    <button type="submit" class="btn btn-success">Save</button>
   </div>
-</form>
+<% end %>

@@ -1,19 +1,21 @@
 <table>
   <thead>
     <tr>
-      Saying
-    </tr>
-    <tr>
-      Author
+      <td>
+        <h3>Saying</h3>
+      </td>
+      <td>
+        <strong>Author</strong>
+      </td>
     </tr>
   </thead>
   <%= for q <- @quotes do %>
-    <tr>  
+    <tr>
       <td>
-        <%= q.saying %>
+        <h4><%= q.saying %></h4>
       </td>
       <td>
-        <%= q.author %>
+        <strong><%= q.author %></strong>
       </td>
     </tr>
   <% end %>

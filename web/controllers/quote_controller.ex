@@ -3,7 +3,7 @@ defmodule Splurty.QuoteController do
   alias Splurty.Router
   import Splurty.Router.Helpers
 
-  plug :action
+  # plug :action
 
   def homepage(conn, _params) do
     render conn, "homepage.html"
@@ -17,8 +17,15 @@ defmodule Splurty.QuoteController do
   end
 
   def new(conn, _params) do
+    changeset = Splurty.Quote.changeset(%Splurty.Quote{})
     conn
-    |> assign(:quotes, Splurty.Repo.all(Splurty.Quote))
-    |> render "new.html"
+    |> assign(:changeset, changeset)
+    |> render("new.html")
+  end
+
+  def create(conn, params) do
+    q = %Splurty.Quote{saying: params["quote"]["saying"], author: params["quote"]["author"]}
+    Splurty.Repo.insert(q)
+    redirect conn, to: quote_path(conn, :index)
   end
 end
