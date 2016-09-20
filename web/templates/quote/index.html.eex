@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <%= for q <- @quotes do %>
-    <tr>
+    <tr>  
       <td>
         <%= q.saying %>
       </td>
