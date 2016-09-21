@@ -16,6 +16,14 @@ defmodule Splurty.QuoteController do
     |> render("index.html")
   end
 
+
+  def show(conn, params) do
+     quote = Splurty.Quote |> Splurty.Repo.get(params["id"])
+     conn
+     |> assign(:quote, quote)
+     |> render("show.html")
+  end
+
   def new(conn, _params) do
     changeset = Splurty.Quote.changeset(%Splurty.Quote{})
     conn

@@ -1,0 +1,8 @@
+<blockquote cite="http://">
+  <h3><%= @quote.saying %></h3>
+</blockquote>
+<div class="row">
+  <div class="col-md-6 col-md-offset-4">
+    <h4>--<%= @quote.author %></h4>
+  </div>
+</div>

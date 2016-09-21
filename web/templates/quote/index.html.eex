@@ -12,7 +12,7 @@
   <%= for q <- @quotes do %>
     <tr>
       <td>
-        <h4><%= q.saying %></h4>
+        <h4><a href="<%= quote_path(@conn, :show, q.id)%>"><%= q.saying %></a></h4>
       </td>
       <td>
         <strong><%= q.author %></strong>
