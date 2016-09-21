@@ -24,6 +24,15 @@ defmodule Splurty.QuoteController do
      |> render("show.html")
   end
 
+  def edit(conn, params) do
+     quote = Splurty.Quote |> Splurty.Repo.get(params["id"])
+     changeset = Splurty.Quote.changeset(quote)
+     conn
+     |> assign(:quote, quote)
+     |> assign(:changeset, changeset)
+     |> render("edit.html")
+  end
+
   def new(conn, _params) do
     changeset = Splurty.Quote.changeset(%Splurty.Quote{})
     conn
@@ -36,4 +45,20 @@ defmodule Splurty.QuoteController do
     Splurty.Repo.insert(q)
     redirect conn, to: quote_path(conn, :index)
   end
+
+  def update(conn, params) do
+    quote = Splurty.Quote |> Ecto.Query.first |> Splurty.Repo.get(params["id"])
+    changeset = Splurty.Quote.changeset(quote, params["quote"])
+    case Splurty.Repo.update(changeset) do
+      {:ok, quote} ->
+        conn
+        |> put_flash(:info, "Quote updated successfully")
+        |> redirect(to: quote_path(conn, :show, quote.id))
+      {:error, changeset}
+        conn
+        |> put_flash(:info, changeset.errors)
+        |> render("edit.html", quote: quote, changeset: changeset)
+    end
+  end
+
 end

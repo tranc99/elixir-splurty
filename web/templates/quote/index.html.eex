@@ -7,15 +7,21 @@
       <td>
         <strong>Author</strong>
       </td>
+      <td>
+        <strong>Actions</strong>
+      </td>
     </tr>
   </thead>
   <%= for q <- @quotes do %>
     <tr>
       <td>
-        <h4><a href="<%= quote_path(@conn, :show, q.id)%>"><%= q.saying %></a></h4>
+        <h4><a href="<%= quote_path(@conn, :show, q.id) %>"><%= q.saying %></a></h4>
       </td>
       <td>
         <strong><%= q.author %></strong>
+      </td>
+      <td>
+        <em><a href="<%= quote_path(@conn, :edit, q.id) %>">Edit</a></em>
       </td>
     </tr>
   <% end %>
