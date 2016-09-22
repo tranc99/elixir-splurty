@@ -19,6 +19,7 @@
         <span class="logo"></span>
         <nav role="navigation">
           <ul class="nav nav-pills">
+            <li><a href="/">Hit Me!</a></li>
             <li><a href="/quotes">Quotes</a></li>
             <li><a href="/quotes/new">Add New</a></li>
           </ul>

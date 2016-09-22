@@ -6,7 +6,10 @@ defmodule Splurty.QuoteController do
   # plug :action
 
   def homepage(conn, _params) do
-    render conn, "homepage.html"
+    quotes_count = Splurty.Repo.aggregate(Splurty.Quote, :count, :id)
+    myoffsets = :rand.uniform(quotes_count - 1)
+    quote = Ecto.Query.offset(Splurty.Quote, ^myoffsets) |> Ecto.Query.first |> Splurty.Repo.one
+    render(conn, "homepage.html", quote: quote)
   end
 
 
