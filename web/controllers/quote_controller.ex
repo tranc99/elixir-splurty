@@ -61,4 +61,18 @@ defmodule Splurty.QuoteController do
     end
   end
 
+  def delete(conn, params) do
+    quote = Splurty.Quote |> Ecto.Query.first |> Splurty.Repo.get(params["id"])
+    case Splurty.Repo.delete(quote) do
+      {:ok, _} ->
+        conn
+        |> put_flash(:info, "Quote was deleted.")
+        |> redirect(to: quote_path(conn, :index))
+      {:error, _} ->
+        conn
+        |> put_flash(:info, "An error occured. Quote was not deleted.")
+        |> redirect(to: quote_path(conn, :index))
+    end
+  end
+
 end

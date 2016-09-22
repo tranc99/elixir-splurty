@@ -1,0 +1,12 @@
+window.smithy = 24
+`$(function() {
+  $(".rest").click(function(d) {
+    $('form').submit(function(s) {
+      var input = $("<input>")
+      .attr("type", "hidden")
+      .attr("name", "csrf_token").val("<%= csrf_token(@conn) %>");
+      $(s.target).append($(input));
+    });
+  });
+  $(".rest").restfulizer({});
+});`

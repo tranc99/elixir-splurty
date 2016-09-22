@@ -21,7 +21,13 @@
         <strong><%= q.author %></strong>
       </td>
       <td>
-        <em><a href="<%= quote_path(@conn, :edit, q.id) %>">Edit</a></em>
+        <a href="<%= quote_path(@conn, :edit, q.id) %>">
+          Edit
+        </a>
+        |
+        <a href="<%= quote_path(@conn, :delete, q.id) %>" class="rest" data-method="DELETE">
+          Delete
+        </a>
       </td>
     </tr>
   <% end %>
