@@ -84,3 +84,17 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+header a {
+  color: #f84342;
+  font-weight:700;
+  font-size: 40px;
+}
+
+a:hover {
+  color: #f84342;
+}
