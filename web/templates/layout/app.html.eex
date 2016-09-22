@@ -23,7 +23,7 @@
             <li><a href="/">Hit Me!</a></li>
             <li><a href="/quotes">Quotes</a></li>
             <li><a href="/quotes/new">Add New</a></li>
-          </ul>      
+          </ul>
         </nav>
         <!-- <span class="logo"></span> -->
       </header>
@@ -36,6 +36,17 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
+
+      <footer>
+        <div class="col-xs-6">
+          <a href="<%= quote_path(@conn, :homepage)%>">
+            This isn't enough, I need more
+          </a>
+        </div>
+        <div class="col-xs-6">
+          RIGHT SIDE
+        </div>
+      </footer>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

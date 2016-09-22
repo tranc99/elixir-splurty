@@ -1,5 +1,7 @@
 # Splurty
 
+## A Phoenix web app for noting and reading motivating quotations!
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`
